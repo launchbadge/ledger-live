@@ -429,8 +429,17 @@ export const ScreenName = {
   Learn: "Learn",
   // cardano
   CardanoEditMemo: "CardanoEditMemo",
-  // hedera
+  // Hedera
   HederaEditMemo: "HederaEditMemo",
+
+  HederaStakeForm: "HederaStakeForm",
+  HederaStakeNodeList: "HederaStakeNodeList",
+  HederaStakeSummary: "HederaStakeSummary",
+  HederaStakeSelectDevice: "HederaStakeSelectDevice",
+  HederaStakeConnectDevice: "HederaStakeConnectDevice",
+  HederaStakeValidationError: "HederaStakeValidationError",
+  HederaStakeValidationSuccess: "HederaStakeValidationSuccess",
+  HederaStakeStopConfirmation: "HederaStakeStopConfirmation",
 
   CustomImageStep1Crop: "CustomImageStep1Crop",
   CustomImageStep2Preview: "CustomImageStep2Preview",
@@ -533,4 +542,8 @@ export const NavigatorName = {
   WalletConnect: "WalletConnect",
 
   PostOnboarding: "PostOnboarding",
+
+  // Hedera
+  HederaStakeFlow: "HederaStakeFlow",
+  HederaStopStakeFlow: "HederaStopStakeFlow",
 };

@@ -55,19 +55,19 @@ type Props = OwnProps & StateProps;
 const steps: Array<St> = [
   {
     id: "confirmation",
-    label: <Trans i18nKey="hedera.stake.flow.steps.confirmation.title" />,
+    label: <Trans i18nKey="hedera.stake.stepperHeader.confirmation" />,
     component: StepConfirmation,
     footer: StepConfirmationFooter,
   },
   {
     id: "connectDevice",
-    label: <Trans i18nKey="hedera.stake.flow.steps.connectDevice.title" />,
+    label: <Trans i18nKey="hedera.stake.stepperHeader.connectDevice" />,
     component: StepConnectDevice,
     onBack: ({ transitionTo }: StepProps) => transitionTo("confirmation"),
   },
   {
     id: "success",
-    label: <Trans i18nKey="hedera.stake.flow.steps.success.title" />,
+    label: <Trans i18nKey="hedera.stake.stepperHeader.success" />,
     component: StepSuccess,
     footer: StepSuccessFooter,
   },
@@ -168,7 +168,7 @@ const Body = ({
   }
 
   const stepperProps = {
-    title: t("hedera.stake.flow.steps.stop.title"),
+    title: t("hedera.stake.stepperHeader.stopStake"),
     device,
     account,
     parentAccount,

@@ -61,21 +61,21 @@ const AccountHeaderManageActionsComponent = ({ account, parentAccount }: Props) 
     key: "Stake",
     onClick: onStake,
     icon: IconCoins,
-    label: t("hedera.stake.flow.steps.stake.title"),
+    label: t("hedera.stake.stepperHeader.stake"),
     disabled: !allOpsConfirmed,
   };
   const changeStakedToAction = {
     key: "ChangeStakedTo",
     onClick: onChangeStakedTo,
     icon: IconCoins,
-    label: t("hedera.stake.flow.steps.changeStake.title"),
+    label: t("hedera.stake.stepperHeader.changeStake"),
     disabled: !allOpsConfirmed,
   };
   const stopStakingAction = {
     key: "StopStaking",
     onClick: onStopStaking,
     icon: IconCoins,
-    label: t("hedera.stake.flow.steps.stop.title"),
+    label: t("hedera.stake.stepperHeader.stopStake"),
     disabled: !allOpsConfirmed,
   };
 

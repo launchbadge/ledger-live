@@ -15,20 +15,20 @@ const StepSummary = ({ transaction }: StepProps) => {
       {/* Stake to ... */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <Text ff="Inter|Medium" color="palette.text.shade40" fontSize={4}>
-          <Trans i18nKey="hedera.stake.flow.steps.stake.to.title" />
+          <Trans i18nKey="hedera.stake.flow.stake.to" />
         </Text>
 
         {/* ... node */}
         {transaction.staked.nodeId != null ? (
           <Text ff="Inter|Medium" color="palette.text.shade100" fontSize={4}>
-            <Trans i18nKey="hedera.stake.flow.steps.stake.to.node" /> {transaction.staked.nodeId}
+            <Trans i18nKey="hedera.common.node" /> {transaction.staked.nodeId}
           </Text>
         ) : null}
 
         {/* ... account */}
         {transaction.staked.accountId != null ? (
           <Text ff="Inter|Medium" color="palette.text.shade100" fontSize={4}>
-            <Trans i18nKey="hedera.stake.flow.steps.stake.to.account" />{" "}
+            <Trans i18nKey="hedera.common.account" />{" "}
             {transaction.staked.accountId}
           </Text>
         ) : null}
@@ -37,14 +37,14 @@ const StepSummary = ({ transaction }: StepProps) => {
       {/* Receive rewards? */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <Text ff="Inter|Medium" color="palette.text.shade40" fontSize={4}>
-          <Trans i18nKey="hedera.stake.flow.steps.summary.receiveRewards" />
+          <Trans i18nKey="hedera.stake.flow.summary.receiveRewards" />
         </Text>
 
         <Text ff="Inter|Medium" color="palette.text.shade100" fontSize={4}>
           {!transaction.staked.declineRewards ? (
-            <Trans i18nKey="hedera.stake.flow.steps.stake.declineRewards.yes" />
+            <Trans i18nKey="hedera.common.yes" />
           ) : (
-            <Trans i18nKey="hedera.stake.flow.steps.stake.declineRewards.no" />
+            <Trans i18nKey="hedera.common.no" />
           )}
         </Text>
       </div>
@@ -55,7 +55,7 @@ const StepSummary = ({ transaction }: StepProps) => {
 export const StepSummaryFooter = ({ transitionTo }: StepProps) => {
   return (
     <Button primary onClick={() => transitionTo("connectDevice")}>
-      <Trans i18nKey="common.continue" />
+      <Trans i18nKey="hedera.common.continue" />
     </Button>
   );
 };

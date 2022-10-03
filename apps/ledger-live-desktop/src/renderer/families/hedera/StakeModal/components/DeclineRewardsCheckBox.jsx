@@ -23,7 +23,7 @@ const DeclineRewardsCheckBox = ({ isChecked, onChange }: Props) => {
     >
       <CheckBox style={{ marginRight: 8 }} isChecked={isChecked} onChange={onChange} />
       <Label>
-        <Trans i18nKey="hedera.stake.flow.steps.stake.declineRewards.title" />
+        <Trans i18nKey="hedera.stake.flow.stake.declineRewards" />
       </Label>
     </div>
   );

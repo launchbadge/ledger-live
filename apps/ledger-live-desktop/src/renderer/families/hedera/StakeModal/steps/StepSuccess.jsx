@@ -47,8 +47,8 @@ function StepSuccess({
         {/* This "component" is purely to sync the account? */}
         <SyncOneAccountOnMount priority={10} accountId={optimisticOperation.accountId} />
         <SuccessDisplay
-          title={<Trans i18nKey="hedera.stake.flow.steps.stake.success.title" />}
-          description={multiline(t("hedera.stake.flow.steps.stake.success.description"))}
+          title={<Trans i18nKey="hedera.stake.flow.stake.success.title" />}
+          description={multiline(t("hedera.stake.flow.stake.success.description"))}
         />
       </Container>
     );
@@ -59,7 +59,7 @@ function StepSuccess({
       <Container shouldSpace={signed}>
         {signed ? (
           <BroadcastErrorDisclaimer
-            title={<Trans i18nKey="hedera.stake.flow.steps.stake.broadcastError" />}
+            title={<Trans i18nKey="hedera.stake.flow.error.broadcastError" />}
           />
         ) : null}
         <ErrorDisplay error={error} withExportLogs />
@@ -107,7 +107,7 @@ export function StepSuccessFooter({
           }}
           primary
         >
-          {t("hedera.stake.flow.steps.stake.success.cta")}
+          {t("hedera.stake.flow.stake.success.viewDetails")}
         </Button>
       ) : error ? (
         <RetryButton

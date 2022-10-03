@@ -47,7 +47,7 @@ export const STAKE_METHOD = {
   ACCOUNT: "account",
 };
 
-// `HederaResources | HederaResourcesRaw` is in the `Account` type
+// `HederaResources | HederaResourcesRaw` is in the `HederaAccount` (i.e., `Account`) type
 // `HederaStake` info will be retrieved via mirrornode REST API fetch
 export type HederaResources = {
   staked: HederaStake;

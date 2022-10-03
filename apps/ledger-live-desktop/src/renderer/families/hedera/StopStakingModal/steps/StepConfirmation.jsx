@@ -10,7 +10,7 @@ import type { StepProps } from "../../StakeModal/types";
 const StepConfirmation = ({ t }: StepProps) => {
   return (
     <Box style={{ display: "flex", alignItems: "center" }} mx={40}>
-      <p style={{ textAlign: "center" }}>{t("hedera.stake.flow.steps.stop.description")}</p>
+      <p style={{ textAlign: "center" }}>{t("hedera.stake.flow.stopStake.confirmation")}</p>
     </Box>
   );
 };

@@ -29,7 +29,7 @@ const StakeMethodSelect = ({ items, activeKey, onChange }: Props) => {
       }}
     >
       <Text style={{ marginRight: 10 }}>
-        <Trans i18nKey="hedera.stake.flow.steps.stake.to.title" />
+        <Trans i18nKey="hedera.stake.flow.stake.to" />
       </Text>
       <RadioGroup items={items} activeKey={activeKey} onChange={onChange} />
     </div>

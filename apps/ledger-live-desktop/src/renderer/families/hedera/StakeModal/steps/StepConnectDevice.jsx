@@ -55,7 +55,6 @@ export default function StepConnectDevice({
 }: StepProps) {
   const dispatch = useDispatch();
   const broadcast = useBroadcast({ account, parentAccount });
-  // const tokenCurrency = account && account.type === "TokenAccount" && account.token;
 
   if (!transaction || !account) return null;
 
@@ -63,7 +62,6 @@ export default function StepConnectDevice({
     <DeviceAction
       action={action}
       request={{
-        // tokenCurrency,
         parentAccount,
         account,
         transaction,

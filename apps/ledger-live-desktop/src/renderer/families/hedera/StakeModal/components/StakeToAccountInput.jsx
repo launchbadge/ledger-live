@@ -29,7 +29,7 @@ const StakeToAccountInput = ({ account, status, value, onChange, t }: Props) => 
       }}
     >
       <Label style={{ marginRight: 10 }}>
-        <Trans i18nKey="hedera.stake.flow.steps.stake.to.account" />
+        <Trans i18nKey="hedera.common.account" />
       </Label>
       <RecipientAddress
         placeholder={t("RecipientField.placeholder", { currencyName: account.currency.name })}

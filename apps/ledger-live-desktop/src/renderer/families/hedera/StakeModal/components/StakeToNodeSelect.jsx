@@ -25,7 +25,7 @@ const StakeToNodeSelect = ({ selected, nodeListOptions, onChange }: Props) => {
       }}
     >
       <Label style={{ marginRight: 10 }}>
-        <Trans i18nKey="hedera.stake.flow.steps.stake.to.node" />
+        <Trans i18nKey="hedera.common.node" />
       </Label>
       <Select
         width={275}
