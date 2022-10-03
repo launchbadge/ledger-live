@@ -4296,6 +4296,7 @@
       "setController": "Please confirm on your device to finalize the operation"
     },
     "recipientWording": {
+      "stake": "stake",
       "send": "recipient",
       "delegate": "validator",
       "redelegate": "validator",
@@ -5054,6 +5055,51 @@
     },
     "currentAddress": {
       "messageIfVirtual": "Your {{name}} address cannot be confirmed on your Ledger device. Use at your own risk."
+    },
+    "stake": {
+      "flow": {
+        "steps": {
+          "stake": {
+            "title": "Stake",
+            "declineRewards": {
+              "title": "Do not receive rewards",
+              "yes": "Yes",
+              "no": "No"
+            },
+            "to": {
+              "title": "Stake To",
+              "node": "Node",
+              "account": "Account"
+            },
+            "success": {
+              "title": "Transaction sent",
+              "description": "Your account's staking information will be updated when the blockchain confirms the transaction",
+              "cta": "View details"
+            },
+            "broadcastError": "Your transaction may have failed. Please wait a moment then check the transaction history before trying again."
+          },
+          "changeStake": {
+            "title": "Change Stake"
+          },
+          "stop": {
+            "title": "Stop Stake",
+            "description": "Are you sure you would like to stop staking your account?"
+          },
+          "connectDevice": {
+            "title": "Device"
+          },
+          "summary": {
+            "title": "Summary",
+            "receiveRewards": "Receive Rewards?"
+          },
+          "confirmation": {
+            "title": "Confirmation"
+          },
+          "success": {
+            "title": "Success"
+          }
+        }
+      }
     },
     "send": {
       "memo": {

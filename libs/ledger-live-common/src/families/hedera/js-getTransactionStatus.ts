@@ -6,15 +6,49 @@ import {
   RecipientRequired,
 } from "@ledgerhq/errors";
 import { AccountId } from "@hashgraph/sdk";
+
+import { calculateAmount, estimatedFees } from "./utils";
+import { STAKE_METHOD } from "./types";
+
 import type { Transaction, TransactionStatus } from "./types";
 import type { Account } from "@ledgerhq/types-live";
-import { calculateAmount, estimatedFees } from "./utils";
 
 export default async function getTransactionStatus(
   account: Account,
   transaction: Transaction
 ): Promise<TransactionStatus> {
   const errors: Record<string, Error> = {};
+
+  /**
+   * STAKE
+   */
+
+  if (transaction.staked?.stakeMethod === STAKE_METHOD.ACCOUNT) {
+    if (
+      !transaction.staked?.accountId ||
+      transaction.staked?.accountId.length === 0
+    ) {
+      errors.stakeInput = new RecipientRequired("");
+    } else {
+      try {
+        AccountId.fromString(transaction.staked?.accountId);
+      } catch (err) {
+        errors.stakeInput = new InvalidAddress("", {
+          currencyName: account.currency.name,
+        });
+      }
+    }
+  }
+
+  if (transaction.staked?.stakeMethod === STAKE_METHOD.NODE) {
+    if (transaction.staked?.nodeId == null) {
+      errors.stakeInput = new RecipientRequired("");
+    }
+  }
+
+  /**
+   * SEND
+   */
 
   if (!transaction.recipient || transaction.recipient.length === 0) {
     errors.recipient = new RecipientRequired("");

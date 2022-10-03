@@ -1,4 +1,5 @@
 import { Observable } from "rxjs";
+import * as hedera from "@hashgraph/sdk";
 import { PublicKey } from "@hashgraph/sdk";
 import {
   Account,
@@ -8,7 +9,10 @@ import {
 } from "@ledgerhq/types-live";
 import { withDevice } from "../../hw/deviceAccess";
 import { Transaction } from "./types";
-import { buildUnsignedTransaction } from "./api/network";
+import {
+  buildUnsignedTransaction,
+  buildUnsignedAccountUpdateTransaction,
+} from "./api/network";
 import { estimatedFees } from "./utils";
 import Hedera from "./hw-app-hedera";
 
@@ -29,7 +33,7 @@ const signOperation = ({
             type: "device-signature-requested",
           });
 
-          const hederaTransaction = await buildUnsignedTransaction({
+          const hederaTransaction = await buildUnsignedTransactionByMode({
             account,
             transaction,
           });
@@ -95,6 +99,29 @@ async function buildOptimisticOperation({
   };
 
   return operation;
+}
+
+async function buildUnsignedTransactionByMode({
+  account,
+  transaction,
+}: {
+  account: Account;
+  transaction: Transaction;
+}): Promise<hedera.TransferTransaction | hedera.AccountUpdateTransaction> {
+  switch (transaction.mode) {
+    case "stake":
+      return await buildUnsignedAccountUpdateTransaction({
+        account,
+        transaction,
+      });
+
+    // default is `TransferTransaction` (Send)
+    default:
+      return await buildUnsignedTransaction({
+        account,
+        transaction,
+      });
+  }
 }
 
 export default signOperation;

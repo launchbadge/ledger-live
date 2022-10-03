@@ -84,6 +84,8 @@ import MODAL_CELO_SIMPLE_OPERATION from "../families/celo/SimpleOperationFlowMod
 import MODAL_CELO_WITHDRAW from "../families/celo/WithdrawFlowModal";
 import MODAL_CELO_ACTIVATE from "../families/celo/ActivateFlowModal";
 import MODAL_CELO_REVOKE from "../families/celo/RevokeFlowModal";
+import MODAL_HEDERA_STOP_STAKING from "../families/hedera/StopStakingModal";
+import MODAL_HEDERA_STAKE from "../families/hedera/StakeModal";
 
 // Lending
 import MODAL_LEND_MANAGE from "../screens/lend/modals/ManageLend";
@@ -163,6 +165,8 @@ const modals: { [_: string]: React$ComponentType<any> } = {
   MODAL_CELO_WITHDRAW,
   MODAL_CELO_ACTIVATE,
   MODAL_CELO_REVOKE,
+  MODAL_HEDERA_STOP_STAKING,
+  MODAL_HEDERA_STAKE,
   MODAL_FULL_NODE,
   MODAL_LOTTIE_DEBUGGER,
   MODAL_RECOVERY_SEED_WARNING,

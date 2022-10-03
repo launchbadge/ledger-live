@@ -38,6 +38,10 @@ import {
   toSolanaResourcesRaw,
   fromSolanaResourcesRaw,
 } from "../families/solana/serialization";
+import {
+  toHederaResourcesRaw,
+  fromHederaResourcesRaw,
+} from "../families/hedera/serialization";
 
 import {
   toCeloResourcesRaw,
@@ -97,6 +101,7 @@ import {
 import { SolanaAccount, SolanaAccountRaw } from "../families/solana/types";
 import { TezosAccount, TezosAccountRaw } from "../families/tezos/types";
 import { CeloAccount, CeloAccountRaw } from "../families/celo/types";
+import { HederaAccount, HederaAccountRaw } from "../families/hedera/types";
 
 export { toCosmosResourcesRaw, fromCosmosResourcesRaw };
 export { toAlgorandResourcesRaw, fromAlgorandResourcesRaw };
@@ -108,6 +113,7 @@ export { toCryptoOrgResourcesRaw, fromCryptoOrgResourcesRaw };
 export { toCardanoResourceRaw, fromCardanoResourceRaw };
 export { toSolanaResourcesRaw, fromSolanaResourcesRaw };
 export { toCeloResourcesRaw, fromCeloResourcesRaw };
+export { toHederaResourcesRaw, fromHederaResourcesRaw };
 
 export function toBalanceHistoryRaw(b: BalanceHistory): BalanceHistoryRaw {
   return b.map(({ date, value }) => [date.toISOString(), value.toString()]);
@@ -869,6 +875,15 @@ export function fromAccountRaw(rawAccount: AccountRaw): Account {
           fromCeloResourcesRaw(celoResourcesRaw);
       break;
     }
+
+    case "hedera": {
+      const hederaResourcesRaw = (rawAccount as HederaAccountRaw)
+        .hederaResources;
+      if (hederaResourcesRaw)
+        (res as HederaAccount).hederaResources =
+          fromHederaResourcesRaw(hederaResourcesRaw);
+      break;
+    }
   }
 
   if (swapHistory) {
@@ -1054,6 +1069,16 @@ export function toAccountRaw(account: Account): AccountRaw {
         (res as CeloAccountRaw).celoResources = toCeloResourcesRaw(
           celoAccount.celoResources
         );
+      break;
+    }
+
+    case "hedera" : {
+      const hederaAccount = account as HederaAccount;
+      if (hederaAccount.hederaResources) {
+        (res as HederaAccountRaw).hederaResources = toHederaResourcesRaw(
+          hederaAccount.hederaResources
+        );
+      }
       break;
     }
   }
