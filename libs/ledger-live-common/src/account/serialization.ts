@@ -38,6 +38,10 @@ import {
   toSolanaResourcesRaw,
   fromSolanaResourcesRaw,
 } from "../families/solana/serialization";
+import {
+  toHederaResourcesRaw,
+  fromHederaResourcesRaw,
+} from "../families/hedera/serialization";
 
 import {
   toCeloResourcesRaw,
@@ -103,6 +107,7 @@ import { SolanaAccount, SolanaAccountRaw } from "../families/solana/types";
 import { TezosAccount, TezosAccountRaw } from "../families/tezos/types";
 import { CeloAccount, CeloAccountRaw } from "../families/celo/types";
 import { NearAccount, NearAccountRaw } from "../families/near/types";
+import { HederaAccount, HederaAccountRaw } from "../families/hedera/types";
 
 export { toCosmosResourcesRaw, fromCosmosResourcesRaw };
 export { toAlgorandResourcesRaw, fromAlgorandResourcesRaw };
@@ -115,6 +120,7 @@ export { toCardanoResourceRaw, fromCardanoResourceRaw };
 export { toSolanaResourcesRaw, fromSolanaResourcesRaw };
 export { toCeloResourcesRaw, fromCeloResourcesRaw };
 export { toNearResourcesRaw, fromNearResourcesRaw };
+export { toHederaResourcesRaw, fromHederaResourcesRaw };
 
 export function toBalanceHistoryRaw(b: BalanceHistory): BalanceHistoryRaw {
   return b.map(({ date, value }) => [date.toISOString(), value.toString()]);
@@ -881,6 +887,14 @@ export function fromAccountRaw(rawAccount: AccountRaw): Account {
       if (nearResourcesRaw)
         (res as NearAccount).nearResources =
           fromNearResourcesRaw(nearResourcesRaw);
+    }
+
+    case "hedera": {
+      const hederaResourcesRaw = (rawAccount as HederaAccountRaw)
+        .hederaResources;
+      if (hederaResourcesRaw)
+        (res as HederaAccount).hederaResources =
+          fromHederaResourcesRaw(hederaResourcesRaw);
       break;
     }
   }
@@ -1075,6 +1089,16 @@ export function toAccountRaw(account: Account): AccountRaw {
       if (nearAccount.nearResources) {
         (res as NearAccountRaw).nearResources = toNearResourcesRaw(
           nearAccount.nearResources
+        );
+      }
+      break;
+    }
+
+    case "hedera" : {
+      const hederaAccount = account as HederaAccount;
+      if (hederaAccount.hederaResources) {
+        (res as HederaAccountRaw).hederaResources = toHederaResourcesRaw(
+          hederaAccount.hederaResources
         );
       }
       break;

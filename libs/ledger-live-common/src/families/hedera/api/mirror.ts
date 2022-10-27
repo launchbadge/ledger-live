@@ -8,6 +8,8 @@ import { AccountId } from "@hashgraph/sdk";
 import { getEnv } from "../../../env";
 import { base64ToUrlSafeBase64 } from "../utils";
 
+import type { AccountInfo, Node } from "./types";
+
 const getMirrorApiUrl = (): string => getEnv("API_HEDERA_MIRROR");
 
 const fetch = (path, query = {}) =>
@@ -148,4 +150,42 @@ export async function getOperationsForAccount(
   }
 
   return operations;
+}
+
+/**
+ * Fetch account information for @param accountId
+ * https://testnet.mirrornode.hedera.com/api/v1/docs/#/accounts/getAccountByIdOrAliasOrEvmAddress
+ */
+export async function getAccountInfo(accountId: string): Promise<AccountInfo> {
+  const { data } = await fetch(`/accounts/${accountId}`);
+
+  return data;
+}
+
+/**
+ * Fetch list of stake-able nodes.
+ * https://testnet.mirrornode.hedera.com/api/v1/docs/#/network/getNetworkNodes
+ */
+export async function getNodeList(): Promise<Node[]> {
+  let hasNextLink = false;
+  let gtVal = 0;
+  const nodeList: Node[] = [];
+
+  // NOTE: REST API returns nodes in increments of 10 w/ a "next link"
+  // to fetch the next 10, and so on.
+  do {
+    const { data } = await fetch("/network/nodes", {
+      "node.id": `gt:${gtVal}`,
+    });
+
+    nodeList.push(...data.nodes);
+
+    hasNextLink = !!data.links.next;
+    if (hasNextLink) {
+      // "next link" will be in the form: `/api/v1/network/nodes?node.id=gt:${num}`
+      gtVal = data.links.next.split(":")[1];
+    }
+  } while (hasNextLink);
+
+  return nodeList;
 }

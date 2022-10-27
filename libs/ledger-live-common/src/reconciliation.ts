@@ -29,6 +29,7 @@ import {
   fromCeloResourcesRaw,
   fromNearResourcesRaw,
   fromNFTRaw,
+  fromHederaResourcesRaw,
   toTronResourcesRaw,
   toCosmosResourcesRaw,
   toAlgorandResourcesRaw,
@@ -40,6 +41,7 @@ import {
   toSolanaResourcesRaw,
   toCeloResourcesRaw,
   toNearResourcesRaw,
+  toHederaResourcesRaw
 } from "./account";
 import consoleWarnExpectToEqual from "./consoleWarnExpectToEqual";
 import { AlgorandAccount, AlgorandAccountRaw } from "./families/algorand/types";
@@ -57,6 +59,7 @@ import { TezosAccount, TezosAccountRaw } from "./families/tezos/types";
 import { TronAccount, TronAccountRaw } from "./families/tron/types";
 import { CeloAccount, CeloAccountRaw } from "./families/celo/types";
 import { NearAccount, NearAccountRaw } from "./families/near/types";
+import { HederaAccount, HederaAccountRaw } from "./families/hedera/types";
 
 // aim to build operations with the minimal diff & call to coin implementation possible
 export async function minimalOperationsBuilder<CO>(
@@ -532,6 +535,25 @@ export function patchAccount(
         );
         changed = true;
       }
+    }
+
+    case "hedera": {
+      const hederaAcc = account as HederaAccount;
+      const hederaUpdatedRaw = updatedRaw as HederaAccountRaw;
+
+      if (
+        hederaUpdatedRaw.hederaResources &&
+        (!hederaAcc.hederaResources ||
+          !areSameResources(
+            toHederaResourcesRaw(hederaAcc.hederaResources),
+            hederaUpdatedRaw.hederaResources
+          ))
+      ) {
+        (next as HederaAccount).hederaResources = fromHederaResourcesRaw(
+          hederaUpdatedRaw.hederaResources
+        );
+        changed = true;
+        }
       break;
     }
   }
