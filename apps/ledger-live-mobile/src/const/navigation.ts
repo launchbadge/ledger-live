@@ -439,15 +439,15 @@ export enum ScreenName {
   CardanoEditMemo = "CardanoEditMemo",
   // hedera
   HederaEditMemo = "HederaEditMemo",
-HederaStakeForm: "HederaStakeForm",
-  HederaStakeNodeList: "HederaStakeNodeList",
-  HederaStakeSummary: "HederaStakeSummary",
-  HederaStakeSelectDevice: "HederaStakeSelectDevice",
-  HederaStakeConnectDevice: "HederaStakeConnectDevice",
-  HederaStakeValidationError: "HederaStakeValidationError",
-  HederaStakeValidationSuccess: "HederaStakeValidationSuccess",
-  HederaStakeStopConfirmation: "HederaStakeStopConfirmation",
-  
+  HederaStakeForm = "HederaStakeForm",
+  HederaStakeNodeList = "HederaStakeNodeList",
+  HederaStakeSummary = "HederaStakeSummary",
+  HederaStakeSelectDevice = "HederaStakeSelectDevice",
+  HederaStakeConnectDevice = "HederaStakeConnectDevice",
+  HederaStakeValidationError = "HederaStakeValidationError",
+  HederaStakeValidationSuccess = "HederaStakeValidationSuccess",
+  HederaStakeStopConfirmation = "HederaStakeStopConfirmation",
+
   // near
   NearStakingValidator = "NearStakingValidator",
   NearStakingValidatorSelect = "NearStakingValidatorSelect",
@@ -584,10 +584,8 @@ export enum NavigatorName {
 
   PostOnboarding = "PostOnboarding",
   SyncOnboarding = "SyncOnboarding",
-}
-  PostOnboarding: "PostOnboarding",
 
   // Hedera
-  HederaStakeFlow: "HederaStakeFlow",
-  HederaStopStakeFlow: "HederaStopStakeFlow",
-};
+  HederaStakeFlow = "HederaStakeFlow",
+  HederaStopStakeFlow = "HederaStopStakeFlow",
+}
