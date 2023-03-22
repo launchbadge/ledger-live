@@ -97,6 +97,9 @@ import MODAL_NEAR_REWARDS_INFO from "../families/near/StakingFlowModal/Info";
 import MODAL_NEAR_UNSTAKE from "../families/near/UnstakingFlowModal";
 import MODAL_NEAR_WITHDRAW from "../families/near/WithdrawingFlowModal";
 
+import MODAL_HEDERA_STOP_STAKING from "../families/hedera/StopStakingModal";
+import MODAL_HEDERA_STAKE from "../families/hedera/StakeModal";
+
 // Lending
 import MODAL_LEND_MANAGE from "../screens/lend/modals/ManageLend";
 import MODAL_LEND_ENABLE_INFO from "../screens/lend/modals/EnableInfoModal";
@@ -184,6 +187,8 @@ const modals: { [_: string]: React$ComponentType<any> } = {
   MODAL_NEAR_REWARDS_INFO,
   MODAL_NEAR_UNSTAKE,
   MODAL_NEAR_WITHDRAW,
+  MODAL_HEDERA_STOP_STAKING,
+  MODAL_HEDERA_STAKE,
   MODAL_FULL_NODE,
   MODAL_LOTTIE_DEBUGGER,
   MODAL_STORYLY_DEBUGGER,

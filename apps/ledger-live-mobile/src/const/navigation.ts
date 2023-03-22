@@ -473,6 +473,14 @@ export enum ScreenName {
   CardanoEditMemo = "CardanoEditMemo",
   // hedera
   HederaEditMemo = "HederaEditMemo",
+  HederaStakeForm = "HederaStakeForm",
+  HederaStakeNodeList = "HederaStakeNodeList",
+  HederaStakeSummary = "HederaStakeSummary",
+  HederaStakeSelectDevice = "HederaStakeSelectDevice",
+  HederaStakeConnectDevice = "HederaStakeConnectDevice",
+  HederaStakeValidationError = "HederaStakeValidationError",
+  HederaStakeValidationSuccess = "HederaStakeValidationSuccess",
+  HederaStakeStopConfirmation = "HederaStakeStopConfirmation",
   // near
   NearStakingValidator = "NearStakingValidator",
   NearStakingValidatorSelect = "NearStakingValidatorSelect",
@@ -597,6 +605,9 @@ export enum NavigatorName {
   CeloActivateFlow = "CeloActivateFlow",
   CeloRevokeFlow = "CeloRevokeFlow",
   CeloWithdrawFlow = "CeloWithdrawFlow",
+  // hedera
+  HederaStakeFlow = "HederaStakeFlow",
+  HederaStopStakeFlow = "HederaStopStakeFlow",
   // NEAR
   NearStakingFlow = "NearStakingFlow",
   NearUnstakingFlow = "NearUnstakingFlow",
