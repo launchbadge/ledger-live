@@ -22,21 +22,46 @@ export function formatTransaction(transaction: Transaction, account: Account): s
 export function fromTransactionRaw(tr: TransactionRaw): Transaction {
   const common = fromTransactionCommonRaw(tr);
 
-  return {
+  const tx = {
     ...common,
     family: tr.family,
+    mode: tr.mode,
     memo: tr.memo,
   };
+
+  switch (tr.mode) {
+    case "stake":
+      return {
+        ...tx,
+        staked: { ...tr.staked! },
+      };
+
+    // default is `TransferTransaction` (Send)
+    default:
+      return tx;
+  }
 }
 
 export function toTransactionRaw(t: Transaction): TransactionRaw {
   const common = toTransactionCommonRaw(t);
 
-  return {
+  const tx = {
     ...common,
     family: t.family,
     memo: t.memo,
   };
+
+  switch (t.mode) {
+    case "stake":
+      return {
+        ...tx,
+        staked: { ...t.staked! },
+      };
+
+    // default is `TransferTransaction` (Send)
+    default:
+      return tx;
+  }
 }
 
 export default {
