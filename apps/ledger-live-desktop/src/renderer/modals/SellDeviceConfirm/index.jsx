@@ -26,7 +26,7 @@ import { from } from "rxjs";
 import getTransactionId from "@ledgerhq/live-common/exchange/sell/getTransactionId";
 import { withDevice } from "@ledgerhq/live-common/hw/deviceAccess";
 
-const action = createAction(getEnv("MOCK") ? mockedEventEmitter : connectApp);
+const action = createAction(true ? mockedEventEmitter : connectApp);
 
 type Props = {
   onClose: () => void,
@@ -104,8 +104,8 @@ const Root = ({ data, onClose }: Props) => {
   const action2 = useMemo(
     () =>
       initSellCreateAction(
-        getEnv("MOCK") ? mockedEventEmitter : connectApp,
-        getEnv("MOCK")
+        true ? mockedEventEmitter : connectApp,
+        true
           ? mockedEventEmitter
           : ({ deviceId }) => withDevice(deviceId)(transport => from(getTransactionId(transport))),
         ({

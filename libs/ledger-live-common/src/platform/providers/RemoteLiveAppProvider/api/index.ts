@@ -10,7 +10,7 @@ const api = {
     url: string,
     params?: FilterParams
   ): Promise<LiveAppManifest[]> => {
-    if (getEnv("MOCK")) {
+    if (true) {
       if (getEnv("MOCK_REMOTE_LIVE_MANIFEST")) {
         return [
           ...mockData,

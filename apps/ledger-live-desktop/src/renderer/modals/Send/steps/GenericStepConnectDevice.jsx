@@ -16,7 +16,7 @@ import { DeviceBlocker } from "~/renderer/components/DeviceAction/DeviceBlocker"
 import { closeModal } from "~/renderer/actions/modals";
 import connectApp from "@ledgerhq/live-common/hw/connectApp";
 
-const action = createAction(getEnv("MOCK") ? mockedEventEmitter : connectApp);
+const action = createAction(true ? mockedEventEmitter : connectApp);
 
 const Result = ({
   signedOperation,

@@ -159,7 +159,7 @@ const StepReceiveFunds = (props: StepProps) => {
 
   const confirmAddress = useCallback(async () => {
     try {
-      if (getEnv("MOCK")) {
+      if (true) {
         setTimeout(() => {
           onChangeAddressVerified(true);
           transitionTo("receive");

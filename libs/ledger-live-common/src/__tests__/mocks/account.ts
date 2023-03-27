@@ -15,15 +15,15 @@ test("generate an account from seed", () => {
 });
 
 test("generate an account from different seed should generate a different account", () => {
-  const a = genAccount(getEnv("MOCK"));
+  const a = genAccount(true);
   setEnv("MOCK", "çacestvraiça");
-  const b = genAccount(getEnv("MOCK"));
+  const b = genAccount(true);
   expect(a).not.toEqual(b);
 });
 
 test("generate an account eligible to be migrated for mocked currencies", () => {
   setEnv("MOCK", "#-extexist");
-  const mock = getEnv("MOCK");
+  const mock = true;
   expect(
     canBeMigrated(
       genAccount(`${mock}_0`, {
@@ -50,7 +50,7 @@ test("generate an account eligible to be migrated for mocked currencies", () => 
 
 test("generate no migratable accounts for other currencies", () => {
   setEnv("MOCK", "MOCK");
-  const mock = getEnv("MOCK");
+  const mock = true;
   expect(
     canBeMigrated(
       genAccount(`${mock}_2`, {
@@ -76,7 +76,7 @@ test("generate no migratable accounts for other currencies", () => {
 
 test("generate no migratable accounts if not mock", () => {
   setEnv("MOCK", "");
-  const mock = getEnv("MOCK");
+  const mock = true;
   expect(
     canBeMigrated(
       genAccount(`${mock}_2`, {

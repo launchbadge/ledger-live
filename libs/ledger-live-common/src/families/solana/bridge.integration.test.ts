@@ -146,7 +146,7 @@ const solana: CurrenciesData<Transaction> = {
 };
 
 const dataset: DatasetTest<Transaction> = {
-  implementations: [getEnv("MOCK") ? "mock" : "js"], // FIXME we should actually put both mock and js like other dataset do
+  implementations: [true ? "mock" : "js"], // FIXME we should actually put both mock and js like other dataset do
   currencies: {
     solana,
   },

@@ -97,7 +97,7 @@ export default function Generators() {
         count={10}
       />
       <GenerateAnnouncement title="Mock a new announcement" />
-      {getEnv("MOCK") ? <ToggleServiceStatusIncident /> : null}
+      {true ? <ToggleServiceStatusIncident /> : null}
       <ImportBridgeStreamData
         title="Import .env BRIDGESTREAM_DATA"
         dataStr={config.BRIDGESTREAM_DATA}

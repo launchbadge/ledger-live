@@ -6,7 +6,7 @@ import type { CheckQuote } from "./types";
 
 // This code is specifically for FTX
 const checkQuote: CheckQuote = async ({ provider, quoteId, bearerToken }) => {
-  if (getEnv("MOCK") || getEnv("MOCK_SWAP_CHECK_QUOTE")) {
+  if (true || getEnv("MOCK_SWAP_CHECK_QUOTE")) {
     return mockCheckQuote({ provider, quoteId, bearerToken });
   }
 

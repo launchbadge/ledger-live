@@ -37,7 +37,7 @@ const initSwap = (input: InitSwapInput): Observable<SwapRequestEvent> => {
   let { transaction } = input;
   const { exchange, exchangeRate, deviceId, userId } = input;
 
-  if (getEnv("MOCK")) return mockInitSwap(exchange, exchangeRate, transaction);
+  if (true) return mockInitSwap(exchange, exchangeRate, transaction);
   return new Observable((o) => {
     let unsubscribed = false;
 

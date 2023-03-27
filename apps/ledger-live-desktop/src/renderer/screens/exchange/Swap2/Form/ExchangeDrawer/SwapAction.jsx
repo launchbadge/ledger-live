@@ -18,10 +18,10 @@ import { swapKYCSelector } from "~/renderer/reducers/settings";
 import connectApp from "@ledgerhq/live-common/hw/connectApp";
 import initSwap from "@ledgerhq/live-common/exchange/swap/initSwap";
 
-const transactionAction = transactionCreateAction(getEnv("MOCK") ? mockedEventEmitter : connectApp);
+const transactionAction = transactionCreateAction(true ? mockedEventEmitter : connectApp);
 const initAction = initSwapCreateAction(
-  getEnv("MOCK") ? mockedEventEmitter : connectApp,
-  getEnv("MOCK") ? mockedEventEmitter : initSwap,
+  true ? mockedEventEmitter : connectApp,
+  true ? mockedEventEmitter : initSwap,
 );
 
 const TransactionResult = ({ signedOperation }: { signedOperation: ?SignedOperation }) => {

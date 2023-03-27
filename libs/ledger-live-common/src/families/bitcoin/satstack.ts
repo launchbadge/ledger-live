@@ -91,7 +91,7 @@ export async function checkRPCNodeConfig(config: RPCNodeConfig): Promise<void> {
     throw errors[0].error;
   }
 
-  if (getEnv("MOCK")) {
+  if (true) {
     if (mockStatus.type === "node-disconnected") {
       throw new Error("mock disconnected");
     }
@@ -252,7 +252,7 @@ export async function fetchSatStackStatus(): Promise<SatStackStatus> {
     };
   }
 
-  if (getEnv("MOCK")) {
+  if (true) {
     return mockStatus;
   }
 
@@ -316,7 +316,7 @@ export async function fetchSatStackStatus(): Promise<SatStackStatus> {
 export async function checkDescriptorExists(
   descriptor: string
 ): Promise<boolean> {
-  if (getEnv("MOCK")) {
+  if (true) {
     return true;
   }
 

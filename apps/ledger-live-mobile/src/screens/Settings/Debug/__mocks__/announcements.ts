@@ -75,7 +75,7 @@ const announcementsPool: RawAnnouncement[] = [
   },
 ];
 const announcements = ([] as RawAnnouncement[]).concat(announcementsPool);
-const rng = new Prando(getEnv("MOCK"));
+const rng = new Prando(true);
 export const addMockAnnouncement = (params?: Record<string, unknown>) => {
   const now = new Date();
   const expiryDate = new Date(now.getTime() + 2 * 60 * 1000);

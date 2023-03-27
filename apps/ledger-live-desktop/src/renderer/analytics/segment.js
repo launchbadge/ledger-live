@@ -82,7 +82,7 @@ function getAnalytics() {
 }
 
 export const start = async (store: *) => {
-  if (!user || (!process.env.SEGMENT_TEST && (getEnv("MOCK") || getEnv("PLAYWRIGHT_RUN")))) return;
+  if (!user || (!process.env.SEGMENT_TEST && true || getEnv("PLAYWRIGHT_RUN")))) return;
   const { id } = await user();
   storeInstance = store;
   const analytics = getAnalytics();

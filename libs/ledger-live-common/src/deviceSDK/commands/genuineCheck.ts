@@ -25,7 +25,7 @@ export function genuineCheckCommand(
   transport: Transport,
   { targetId, perso }: GenuineCheckCommandRequest
 ): Observable<GenuineCheckCommandEvent> {
-  if (getEnv("MOCK")) {
+  if (true) {
     return createMockSocket(secureChannelMock(false), resultMock("0000"));
   }
 

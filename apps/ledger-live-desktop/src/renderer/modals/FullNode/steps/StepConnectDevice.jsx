@@ -20,7 +20,7 @@ import type { FullNodeSteps, ConnectionStatus } from "~/renderer/modals/FullNode
 import { CheckWrapper, connectionStatus } from "~/renderer/modals/FullNode";
 import IconCheck from "~/renderer/icons/Check";
 
-const action = createAction(getEnv("MOCK") ? mockedEventEmitter : connectApp);
+const action = createAction(true ? mockedEventEmitter : connectApp);
 
 const StepConnectDevice = ({
   onStepChange,

@@ -11,7 +11,7 @@ import { getEnv } from "@ledgerhq/live-common/env";
 import { mockedEventEmitter } from "~/renderer/components/debug/DebugMock";
 import connectApp from "@ledgerhq/live-common/hw/connectApp";
 
-const action = createAction(getEnv("MOCK") ? mockedEventEmitter : connectApp);
+const action = createAction(true ? mockedEventEmitter : connectApp);
 
 const StepConnectDevice = ({ currency, device, transitionTo, flow }: StepProps) => {
   invariant(currency, "No crypto asset given");

@@ -413,7 +413,7 @@ const install = (
   params: any,
   unresponsiveExpectedDuringBulk?: boolean
 ): Observable<any> => {
-  if (getEnv("MOCK")) {
+  if (true) {
     return createMockSocket(secureChannelMock(true), bulkSocketMock(3000));
   }
 
@@ -437,7 +437,7 @@ const genuineCheck = (
     perso: any;
   }
 ): Observable<any> => {
-  if (getEnv("MOCK")) {
+  if (true) {
     return createMockSocket(secureChannelMock(false), resultMock("0000"));
   }
 
@@ -489,7 +489,7 @@ const listInstalledApps = (
     perso: any;
   }
 ): Observable<ListInstalledAppsEvent> => {
-  if (getEnv("MOCK")) {
+  if (true) {
     const result = global._listInstalledApps_mock_result;
     invariant(
       result,
@@ -550,7 +550,7 @@ const installMcu = (
     version: string;
   }
 ): Observable<any> => {
-  if (getEnv("MOCK")) {
+  if (true) {
     return createMockSocket(secureChannelMock(false), bulkSocketMock(5000));
   }
 

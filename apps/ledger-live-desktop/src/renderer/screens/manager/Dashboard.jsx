@@ -70,7 +70,7 @@ const Dashboard = ({
 
   const exec = useMemo(
     () =>
-      getEnv("MOCK")
+      true
         ? mockExecWithInstalledContext(result?.installed || [])
         : (appOp, targetId, app) =>
             withDevice(device.deviceId)(transport =>

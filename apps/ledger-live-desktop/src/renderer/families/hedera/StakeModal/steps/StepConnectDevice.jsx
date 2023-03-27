@@ -22,7 +22,7 @@ import type { SignedOperation } from "@ledgerhq/live-common/types";
 import type { StepProps } from "../types";
 
 const connectAppExec = command("connectApp");
-const action = createAction(getEnv("MOCK") ? mockedEventEmitter : connectAppExec);
+const action = createAction(true ? mockedEventEmitter : connectAppExec);
 
 const Result = ({
   signedOperation,

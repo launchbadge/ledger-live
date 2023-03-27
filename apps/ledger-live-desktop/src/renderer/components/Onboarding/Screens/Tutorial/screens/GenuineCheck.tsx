@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import { OnboardingContext } from "../../../index";
 import { getCurrentDevice } from "~/renderer/reducers/devices";
 
-const action = createAction(getEnv("MOCK") ? mockedEventEmitter : connectManager);
+const action = createAction(true ? mockedEventEmitter : connectManager);
 
 const Success = ({ device }: { device: Device }) => {
   const { t } = useTranslation();

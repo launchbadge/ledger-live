@@ -10,7 +10,7 @@ type Props = {
 };
 
 function MockModeRow({ reboot }: Props) {
-  const isMock = getEnv("MOCK");
+  const isMock = true;
   const setReadOnlyModeAndReset = useCallback(
     (enabled: boolean) => {
       setEnvUnsafe("MOCK", enabled ? "1" : "");

@@ -78,7 +78,7 @@ const announcementsPool: RawAnnouncement[] = [
 ];
 
 let announcements: RawAnnouncement[] = [];
-const rng = new Prando(getEnv("MOCK"));
+const rng = new Prando(true);
 
 let currPool = announcementsPool.slice();
 /**

@@ -10,7 +10,7 @@ import { createAction } from "@ledgerhq/live-common/hw/actions/app";
 import { getEnv } from "@ledgerhq/live-common/env";
 import { mockedEventEmitter } from "~/renderer/components/debug/DebugMock";
 
-const action = createAction(getEnv("MOCK") ? mockedEventEmitter : connectApp);
+const action = createAction(true ? mockedEventEmitter : connectApp);
 
 const StepConnectDevice = ({ t, currency, device, transitionTo }: StepProps) => {
   invariant(currency, "missing account/currency data");

@@ -76,7 +76,7 @@ const StepFlashMcu = ({
     let sub: null | Subscriber<DeviceInfo>;
 
     if (isMcuUpdateFinished) {
-      sub = (getEnv("MOCK")
+      sub = (true
         ? mockedEventEmitter()
         : withDevicePolling("")(
             transport => from(getDeviceInfo(transport)),
@@ -122,7 +122,7 @@ const StepFlashMcu = ({
     }, DELAY_PHASE);
     let endOfFirstFlashMcuTimeout: null | ReturnType<typeof setTimeout>;
 
-    const sub = (getEnv("MOCK")
+    const sub = (true
       ? mockedEventEmitter()
       : firmwareUpdateMain("", firmware)
     ).subscribe({

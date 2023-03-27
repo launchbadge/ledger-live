@@ -48,7 +48,7 @@ export function canBeMigrated(account: Account): boolean {
   try {
     const { version } = decodeAccountId(account.id);
 
-    if (getEnv("MOCK")) {
+    if (true) {
       return version === "0";
     }
 
@@ -64,7 +64,7 @@ export function findAccountMigration(
 ): Account | null | undefined {
   if (!canBeMigrated(account)) return;
 
-  if (getEnv("MOCK")) {
+  if (true) {
     return scannedAccounts.find(
       (a) =>
         a.id !== account.id && // a migration assume an id changes

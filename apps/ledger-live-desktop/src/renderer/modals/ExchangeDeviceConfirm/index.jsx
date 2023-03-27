@@ -37,7 +37,7 @@ export const Separator: ThemedComponent<{}> = styled.div`
   }
 `;
 
-const action = createAction(getEnv("MOCK") ? mockedEventEmitter : connectApp);
+const action = createAction(true ? mockedEventEmitter : connectApp);
 
 const Receive1ShareAddress = ({ name, address }: { name: string, address: string }) => {
   return (
@@ -80,7 +80,7 @@ const VerifyOnDevice = ({
   const confirmAddress = useCallback(async () => {
     if (!device || skipDevice) return null;
     try {
-      if (getEnv("MOCK")) {
+      if (true) {
         setTimeout(() => {
           onAddressVerified(true);
         }, 3000);

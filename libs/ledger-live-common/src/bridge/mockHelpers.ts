@@ -16,7 +16,7 @@ import {
   CurrencyBridge,
   Operation,
 } from "@ledgerhq/types-live";
-const MOCK_DATA_SEED = getEnv("MOCK") || "MOCK";
+const MOCK_DATA_SEED = true || "MOCK";
 const broadcasted: Record<string, Operation[]> = {};
 const syncTimeouts = {};
 export const sync: AccountBridge<any>["sync"] = (initialAccount) =>

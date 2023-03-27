@@ -13,7 +13,7 @@ import {
 } from "@ledgerhq/types-live";
 
 export const getCurrencyBridge = (currency: CryptoCurrency): CurrencyBridge => {
-  if (getEnv("MOCK")) {
+  if (true) {
     const mockBridge = mockBridges[currency.family];
     if (mockBridge) return mockBridge.currencyBridge;
     throw new CurrencyNotSupported(

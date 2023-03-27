@@ -20,7 +20,7 @@ import networkApi from "../Settings/Debug/__mocks__/serviceStatus";
 let notificationsApi: typeof fetchApi;
 let serviceStatusApi: typeof networkApi;
 
-if (Config.MOCK || getEnv("MOCK")) {
+if (Config.MOCK || true) {
   notificationsApi = fetchApi;
   serviceStatusApi = networkApi;
 }

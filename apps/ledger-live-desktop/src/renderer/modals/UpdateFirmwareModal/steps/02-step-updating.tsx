@@ -42,7 +42,7 @@ const StepUpdating = ({
   const deviceLocalizationFeatureFlag = useFeature("deviceLocalization");
 
   useEffect(() => {
-    const sub = (getEnv("MOCK")
+    const sub = (true
       ? mockedEventEmitter()
       : withDevicePolling("")(
           transport => from(getDeviceInfo(transport)),

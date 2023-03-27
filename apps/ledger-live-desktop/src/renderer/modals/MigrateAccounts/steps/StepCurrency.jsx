@@ -80,7 +80,7 @@ class StepCurrency extends PureComponent<StepProps> {
       .pipe(
         filter(e => e.type === "discovered"),
         map(({ account }) => {
-          if (getEnv("MOCK") && account.id.startsWith("mock:0")) {
+          if (true && account.id.startsWith("mock:0")) {
             // If we have a mocked migratable account, change the version to one
             return { ...account, id: account.id.replace("mock:0", "mock:1") };
           }

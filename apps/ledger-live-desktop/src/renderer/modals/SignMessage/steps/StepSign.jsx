@@ -10,8 +10,8 @@ import { closeModal } from "~/renderer/actions/modals";
 import connectApp from "@ledgerhq/live-common/hw/connectApp";
 
 const action = createAction(
-  getEnv("MOCK") ? mockedEventEmitter : connectApp,
-  getEnv("MOCK") ? mockedEventEmitter : signMessageExec,
+  true ? mockedEventEmitter : connectApp,
+  true ? mockedEventEmitter : signMessageExec,
 );
 
 export default function StepSign({

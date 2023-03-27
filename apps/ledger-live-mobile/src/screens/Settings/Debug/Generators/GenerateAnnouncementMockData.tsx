@@ -103,7 +103,7 @@ export default function AddMockAnnouncementButton({
     onClose,
     updateCache,
   ]);
-  return getEnv("MOCK") ? (
+  return true ? (
     <>
       <SettingsRow
         title={title}

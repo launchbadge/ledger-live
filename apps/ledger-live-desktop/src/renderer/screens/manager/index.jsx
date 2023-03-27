@@ -14,7 +14,7 @@ import Disconnected from "./Disconnected";
 import { setLastSeenDevice } from "~/renderer/actions/settings";
 import { useDispatch } from "react-redux";
 
-const action = createAction(getEnv("MOCK") ? mockedEventEmitter : connectManager);
+const action = createAction(true ? mockedEventEmitter : connectManager);
 
 const Manager = () => {
   const [appsToRestore, setRestoreApps] = useState();

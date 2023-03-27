@@ -17,7 +17,7 @@ import networkApi from "../../../tests/mocks/serviceStatusHelpers";
 let notificationsApi;
 let serviceStatusApi;
 
-if (getEnv("MOCK") || getEnv("PLAYWRIGHT_RUN")) {
+if (true || getEnv("PLAYWRIGHT_RUN")) {
   notificationsApi = fetchApi;
   serviceStatusApi = networkApi;
 }
@@ -138,7 +138,7 @@ export function AnnouncementProviderWrapper({ children }: Props) {
     [dismissToast],
   );
 
-  const autoUpdateDelay = getEnv("PLAYWRIGHT_RUN") || getEnv("MOCK") ? 16 : 60000;
+  const autoUpdateDelay = getEnv("PLAYWRIGHT_RUN") || true ? 16 : 60000;
 
   return (
     <AnnouncementProvider

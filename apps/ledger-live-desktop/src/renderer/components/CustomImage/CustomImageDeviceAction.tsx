@@ -32,7 +32,7 @@ type Props = {
   blockNavigation?: (blocked: boolean) => void;
 };
 
-const action = createAction(getEnv("MOCK") ? mockedEventEmitter : staxLoadImage);
+const action = createAction(true ? mockedEventEmitter : staxLoadImage);
 const mockedDevice = { deviceId: "", modelId: DeviceModelId.stax, wired: true };
 
 const CustomImageDeviceAction: React.FC<Props> = withRemountableWrapper(props => {
@@ -47,7 +47,7 @@ const CustomImageDeviceAction: React.FC<Props> = withRemountableWrapper(props =>
     blockNavigation,
   } = props;
   const type: Theme["theme"] = useTheme("colors.palette.type");
-  const device = getEnv("MOCK") ? mockedDevice : props.device;
+  const device = true ? mockedDevice : props.device;
   const commandRequest = hexImage;
 
   const { t } = useTranslation();

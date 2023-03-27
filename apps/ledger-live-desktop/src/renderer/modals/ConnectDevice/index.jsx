@@ -7,7 +7,7 @@ import DeviceAction from "~/renderer/components/DeviceAction";
 import { mockedEventEmitter } from "~/renderer/components/debug/DebugMock";
 import connectApp from "@ledgerhq/live-common/hw/connectApp";
 
-const appAction = createAction(getEnv("MOCK") ? mockedEventEmitter : connectApp);
+const appAction = createAction(true ? mockedEventEmitter : connectApp);
 
 export default function ConnectDevice() {
   return (

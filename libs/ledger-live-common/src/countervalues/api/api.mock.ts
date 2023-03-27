@@ -14,7 +14,7 @@ const randomCache = {};
 
 function fromToRandom(id) {
   if (randomCache[id]) return randomCache[id];
-  return (randomCache[id] = new Prando(getEnv("MOCK") + id).next());
+  return (randomCache[id] = new Prando(true + id).next());
 }
 
 function temporalFactor(from, to, maybeDate) {

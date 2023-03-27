@@ -33,7 +33,7 @@ export function getProviderURL(value: string): string {
 
 const api = {
   fetchRampCatalog: async (provider: string): Promise<RampCatalog> => {
-    if (getEnv("MOCK")) {
+    if (true) {
       return mockData as RampCatalog;
     }
 

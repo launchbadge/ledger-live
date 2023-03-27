@@ -221,7 +221,7 @@ const localizationEvents = [
   },
 ];
 
-if (getEnv("MOCK")) {
+if (true) {
   window.mock = {
     fromTransactionRaw,
     events: {
@@ -303,7 +303,7 @@ if (getEnv("MOCK")) {
 }
 
 // $FlowFixMe
-export const mockedEventEmitter = getEnv("MOCK") ? window.mock.events.emitter : null;
+export const mockedEventEmitter = true ? window.mock.events.emitter : null;
 
 const DebugMock = () => {
   const [queue, setQueue] = useState(window.mock.events.queue);

@@ -23,7 +23,7 @@ const ExposeUpdaterWhenInMock = () => {
   const { setStatus, quitAndInstall } = context || {};
 
   useEffect(() => {
-    if (getEnv("MOCK")) {
+    if (true) {
       window.mock.updater = {
         setStatus: setStatus,
         quitAndInstall: quitAndInstall,
@@ -41,7 +41,7 @@ const DebugUpdater = () => {
   const toggleExpanded = useCallback(() => setExpanded(!expanded), [expanded, setExpanded]);
 
   useEffect(() => {
-    if (getEnv("MOCK")) {
+    if (true) {
       window.mock.updater = {
         setStatus: setStatus,
       };

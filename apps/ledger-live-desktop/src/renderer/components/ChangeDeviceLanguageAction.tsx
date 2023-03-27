@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import { BoxedIcon, Flex, Icons, Text } from "@ledgerhq/react-ui";
 import { withV3StyleProvider } from "~/renderer/styles/StyleProviderV3";
 
-const action = createAction(getEnv("MOCK") ? mockedEventEmitter : installLanguage);
+const action = createAction(true ? mockedEventEmitter : installLanguage);
 
 const DeviceLanguageInstalled = ({ language }: { language: Language }) => {
   const { t } = useTranslation();

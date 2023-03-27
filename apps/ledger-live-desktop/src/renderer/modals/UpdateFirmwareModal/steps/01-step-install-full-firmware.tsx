@@ -171,7 +171,7 @@ const StepFullFirmwareInstall = ({
       return;
     }
 
-    const sub = (getEnv("MOCK")
+    const sub = (true
       ? mockedEventEmitter()
       : firmwareUpdatePrepare(device ? device.deviceId : "", firmware)
     ).subscribe({
