@@ -152,7 +152,7 @@ export async function getOperationsForAccount(
  * https://testnet.mirrornode.hedera.com/api/v1/docs/#/accounts/getAccountByIdOrAliasOrEvmAddress
  */
 export async function getAccountInfo(accountId: string): Promise<AccountInfo> {
-  const { data } = await fetch(`/accounts/${accountId}`);
+  const { data } = await fetch(`/api/v1/accounts/${accountId}`);
 
   return data;
 }
@@ -163,7 +163,7 @@ export async function getAccountInfo(accountId: string): Promise<AccountInfo> {
  */
 export async function getNodeList(): Promise<Node[]> {
   const nodeList: Node[] = [];
-  let r = await fetch("/network/nodes");
+  let r = await fetch("/api/v1/network/nodes");
   nodeList.push(r.data.nodes);
 
   while (r.data.links.next) {
