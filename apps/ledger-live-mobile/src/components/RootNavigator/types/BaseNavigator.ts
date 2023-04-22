@@ -70,6 +70,7 @@ import type { NoFundsNavigatorParamList } from "./NoFundsNavigator";
 import type { StakeNavigatorParamList } from "./StakeNavigator";
 import type { ExploreTabNavigatorStackParamList } from "./ExploreTabNavigator";
 import { AnalyticsOptInPromptNavigatorParamList } from "./AnalyticsOptInPromptNavigator";
+import type { HederaStakeFlowParamList } from "../../../families/hedera/StakeFlows/types";
 
 export type NavigateInput<
   ParamList extends ParamListBase = ParamListBase,
@@ -272,6 +273,9 @@ export type BaseNavigatorStackParamList = {
 
   // EVM
   [NavigatorName.EvmEditTransaction]: NavigatorScreenParams<EditTransactionParamList>;
+  
+  // Hedera
+  [NavigatorName.HederaStakeFlow]: NavigatorScreenParams<HederaStakeFlowParamList>;
 
   // Solana
   [NavigatorName.SolanaDelegationFlow]: NavigatorScreenParams<SolanaDelegationFlowParamList>;

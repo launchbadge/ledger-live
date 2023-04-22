@@ -54,6 +54,7 @@ import { SignTransactionNavigatorParamList } from "~/components/RootNavigator/ty
 import { SignMessageNavigatorStackParamList } from "~/components/RootNavigator/types/SignMessageNavigator";
 import { useTransactionDeviceAction } from "~/hooks/deviceActions";
 import { SignedOperation } from "@ledgerhq/types-live";
+import { HederaStakeFlowParamList } from "../families/hedera/StakeFlows/types";
 
 type Props =
   | StackNavigatorProps<SendFundsNavigatorStackParamList, ScreenName.SendConnectDevice>
@@ -93,6 +94,7 @@ type Props =
   | StackNavigatorProps<ElrondUndelegationFlowParamList, ScreenName.ElrondUndelegationConnectDevice>
   | StackNavigatorProps<ElrondClaimRewardsFlowParamList, ScreenName.ElrondClaimRewardsConnectDevice>
   | StackNavigatorProps<ElrondWithdrawFlowParamList, ScreenName.ElrondWithdrawConnectDevice>
+  | StackNavigatorProps<HederaStakeFlowParamList, ScreenName.HederaStakeConnectDevice>
   | StackNavigatorProps<NearStakingFlowParamList, ScreenName.NearStakingConnectDevice>
   | StackNavigatorProps<NearUnstakingFlowParamList, ScreenName.NearUnstakingConnectDevice>
   | StackNavigatorProps<NearWithdrawingFlowParamList, ScreenName.NearWithdrawingConnectDevice>
