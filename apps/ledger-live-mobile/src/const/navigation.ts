@@ -441,6 +441,7 @@ export enum ScreenName {
   // cardano
   CardanoEditMemo = "CardanoEditMemo",
   // hedera
+  HederaStakeInfo = "HederaStakeInfo",
   HederaEditMemo = "HederaEditMemo",
   HederaStakeForm = "HederaStakeForm",
   HederaStakeNodeList = "HederaStakeNodeList",
