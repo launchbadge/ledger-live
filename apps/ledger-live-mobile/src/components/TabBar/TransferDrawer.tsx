@@ -84,7 +84,8 @@ export default function TransferDrawer({
       page,
       flow: "stake",
     });
-    onNavigate(NavigatorName.StakeFlow);
+    //FIXME: change back to `onNavigate(NavigatorName.StakeFlow);
+    onNavigate(NavigatorName.HederaStakeFlow);
   }, [onNavigate, page, track]);
 
   const onWalletConnect = useCallback(
