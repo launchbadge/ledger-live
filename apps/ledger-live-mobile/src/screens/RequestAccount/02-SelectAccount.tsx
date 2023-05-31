@@ -116,6 +116,10 @@ function SelectAccount({ navigation, route }: Props) {
           StackNavigatorNavigation<BaseNavigatorStackParamList>
         >() || navigation;
       n.pop();
+      // n.replace(NavigatorName.HederaStakeFlow, {
+      //   screen: ScreenName.HederaStakeInfo,
+      //   params: {},
+      // });
     },
     [navigation, onSuccess],
   );
