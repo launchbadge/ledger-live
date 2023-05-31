@@ -459,7 +459,8 @@ export enum ScreenName {
   // casper
   CasperEditTransferId = "CasperEditTransferId",
   // hedera
-  HederaStakeInfo = "HederaStakeInfo",
+  HederaStakingStarted = "HederaStakingStarted",
+  HederaStakingType = "HederaStakingType",
   HederaEditMemo = "HederaEditMemo",
   HederaStakeForm = "HederaStakeForm",
   HederaStakeNodeList = "HederaStakeNodeList",
