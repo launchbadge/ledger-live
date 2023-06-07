@@ -7,6 +7,7 @@ import { encodeOperationId } from "../../../operation";
 import { getAccountBalance } from "./network";
 import { base64ToUrlSafeBase64 } from "../utils";
 import type { AccountInfo, Node } from "./types";
+import { getAccountBalance } from "./network";
 
 const getMirrorApiUrl = (): string => getEnv("API_HEDERA_MIRROR");
 
