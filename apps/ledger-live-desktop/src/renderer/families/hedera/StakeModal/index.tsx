@@ -16,7 +16,7 @@ type State = {
 };
 
 const INITIAL_STATE = {
-  stepId: "started",
+  stepId: "stake",
   nodeListOptions: [],
 };
 

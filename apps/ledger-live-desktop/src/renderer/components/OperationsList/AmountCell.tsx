@@ -31,6 +31,8 @@ class AmountCell extends PureComponent<Props> {
     const { currency, unit, operation, isConfirmed } = this.props;
     const amount = getOperationAmountNumber(operation);
 
+    console.log(amount.toFixed());
+
     const specific =
       "family" in currency && currency.family
         ? perFamilyOperationDetails[currency.family as keyof typeof perFamilyOperationDetails]

@@ -41,6 +41,7 @@ export type AccountInfo = {
   max_automatic_token_associations: number;
   memo: string;
   receiver_sig_required: boolean;
+  pending_reward: number;
   staked_account_id: string;
   staked_node_id: number;
   stake_period_start: number;

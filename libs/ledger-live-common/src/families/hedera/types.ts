@@ -38,6 +38,7 @@ export type HederaStake = {
   accountId?: string | null;
   nodeId?: number | null;
   declineRewards?: boolean | null;
+  pendingRewards?: number | null;
 };
 
 export type StakeType = "new" | "change" | "stop";
