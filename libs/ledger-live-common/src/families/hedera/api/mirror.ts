@@ -51,6 +51,7 @@ interface HederaMirrorTransaction {
   charged_tx_fee: string;
   transaction_hash: string;
   consensus_timestamp: string;
+  name: string;
 }
 
 interface HederaMirrorTransfer {
@@ -76,13 +77,14 @@ export async function getOperationsForAccount(
   }
 
   for (const raw of rawOperations) {
-    const { consensus_timestamp } = raw;
+    const { consensus_timestamp, name } = raw;
     const timestamp = new Date(parseInt(consensus_timestamp.split(".")[0], 10) * 1000);
     const senders: string[] = [];
     const recipients: string[] = [];
     const fee = new BigNumber(raw.charged_tx_fee);
     let value = new BigNumber(0);
     let type: OperationType = "NONE";
+    
 
     for (let i = raw.transfers.length - 1; i >= 0; i--) {
       const transfer = raw.transfers[i];
@@ -90,7 +92,12 @@ export async function getOperationsForAccount(
       const account = AccountId.fromString(transfer.account);
 
       if (transfer.account === address) {
-        if (amount.isNegative()) {
+        if (name === "CRYPTOUPDATEACCOUNT") {
+          type = "UPDATE_ACCOUNT";
+          value = amount.abs();
+          console.log("mirror value: " + value.toFixed());
+        }
+        else if (amount.isNegative()) {
           value = amount.abs();
           type = "OUT";
         } else {

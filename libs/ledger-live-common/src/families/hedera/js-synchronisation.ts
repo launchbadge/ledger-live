@@ -47,6 +47,7 @@ const getAccountShape: GetAccountShape = async (
       nodeId: accountInfo.staked_node_id,
       declineRewards: accountInfo.decline_reward,
       stakeMethod,
+      pendingRewards: accountInfo.pending_reward,
     },
   };
 

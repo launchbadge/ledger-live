@@ -206,6 +206,7 @@ export const urls = {
   hedera: {
     supportArticleLink:
       "https://support.ledger.com/hc/articles/4494505217565-Create-a-Ledger-Hedera-HBAR-account-via-HashPack?docs=true",
+    staking: "https://docs.hedera.com/hedera/core-concepts/staking/stake-hbar",
   },
   celo: {
     ledgerByFigmentTC:

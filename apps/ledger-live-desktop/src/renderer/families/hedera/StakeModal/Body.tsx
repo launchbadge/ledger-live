@@ -59,17 +59,10 @@ type Props = OwnProps & StateProps;
 
 const steps: Array<St> = [
   {
-    id: "started",
-    label: <Trans i18nKey="hedera.stake.stepperHeader.started" />,
-    component: StepStakingStarted,
-    footer: StepStakingStartedFooter,
-  },
-  {
     id: "stake",
     label: <Trans i18nKey="hedera.stake.stepperHeader.stake" />,
     component: StepStakingInfo,
     footer: StepStakingInfoFooter,
-    onBack: ({ transitionTo }: StepProps) => transitionTo("started"),
   },
   {
     id: "summary",
@@ -85,7 +78,7 @@ const steps: Array<St> = [
     onBack: ({ transitionTo }: StepProps) => transitionTo("summary"),
   },
   {
-    id: "success",
+    id: "confirmation",
     label: <Trans i18nKey="hedera.stake.stepperHeader.success" />,
     component: StepSuccess,
     footer: StepSuccessFooter,

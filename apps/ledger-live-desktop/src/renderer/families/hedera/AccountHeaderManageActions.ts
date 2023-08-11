@@ -42,7 +42,7 @@ const AccountHeaderManageActionsComponent = ({ account, parentAccount }: Props) 
   // open 'set new stake' modal
   const onStake = useCallback(() => {
     const data = { account: mainAccount, stakeType: STAKE_TYPE.NEW };
-    dispatch(openModal("MODAL_HEDERA_STAKE", data));
+    dispatch(openModal("MODAL_HEDERA_REWARDS_INFO", data));
   }, [dispatch, mainAccount]);
 
   // open 'change staked to' modal
@@ -66,29 +66,7 @@ const AccountHeaderManageActionsComponent = ({ account, parentAccount }: Props) 
     eventProperties: {
       button: "stake",
     },
-    // disabled: !allOpsConfirmed,
-  };
-  const changeStakedToAction = {
-    key: "ChangeStakedTo",
-    onClick: onChangeStakedTo,
-    icon: IconCoins,
-    label: t("hedera.stake.stepperHeader.changeStake"),
-    event: "button_clicked",
-    eventProperties: {
-      button: "changeStake",
-    },
-    // disabled: !allOpsConfirmed,
-  };
-  const stopStakingAction = {
-    key: "StopStaking",
-    onClick: onStopStaking,
-    icon: IconCoins,
-    label: t("hedera.stake.stepperHeader.stopStake"),
-    event: "button_clicked",
-    eventProperties: {
-      button: "stopStake",
-    },
-    // disabled: !allOpsConfirmed,
+    disabled: hederaResources?.staked?.stakeMethod != null,
   };
 
   // array containing which buttons to show depending on account's staking status
@@ -96,16 +74,9 @@ const AccountHeaderManageActionsComponent = ({ account, parentAccount }: Props) 
 
   // if account is already staking to a node or account id,
   // show `Change Staked To and `Stop Staking` buttons
-  console.log("stake method: " + hederaResources.staked.stakeMethod);
+  console.log("stake method: " + hederaResources?.staked?.stakeMethod);
 
-  if (hederaResources?.staked?.stakeMethod != null) {
-    actionList.push(changeStakedToAction, stopStakingAction);
-  } else {
-    // otherwise, show `Stake` button
-    actionList.push(stakeAction);
-  }
-
-  // if (parentAccount) return null;
+  actionList.push(stakeAction);
 
   return actionList;
 };

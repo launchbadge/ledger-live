@@ -51,7 +51,9 @@ export type OperationType =
   // NEAR
   | "STAKE"
   | "UNSTAKE"
-  | "WITHDRAW_UNSTAKED";
+  | "WITHDRAW_UNSTAKED"
+  // HEDERA
+  | "UPDATE_ACCOUNT";
 
 export type OperationExtra = unknown;
 /**

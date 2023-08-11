@@ -194,6 +194,7 @@
       "STAKE": "Staked",
       "UNSTAKE": "Unstaked",
       "WITHDRAW_UNSTAKED": "Withdrawn",
+      "UPDATE_ACCOUNT": "Update Account",
       "SENDING": "Sending"
     },
     "edit": {
@@ -1813,7 +1814,8 @@
       "withdrawUnbondedAmount": "Withdrawn Amount",
       "palletMethod": "Method",
       "transferAmount": "Transfer Amount",
-      "validatorsCount": "Validators ({{number}})"
+      "validatorsCount": "Validators ({{number}})",
+      "updateAccount": "Possible actions that are performed during an Update Account transaction include staking or key changes"
     }
   },
   "operationList": {
@@ -6108,9 +6110,10 @@
       }
     },
     "stake": {
+      "node": "Node",
       "stepperHeader": {
         "started": "Started",
-        "stake": "Delegate",
+        "stake": "Stake",
         "changeStake": "Change Stake",
         "stopStake": "Stop Stake",
         "summary": "Summary",
@@ -6121,7 +6124,7 @@
         "stepRange": "Step {{currentStep}} of {{totalSteps}}"
       },
       "flow": {
-        "started": {
+        "info": {
           "title": "Stake HBAR directly from Ledger Live",
           "stake": "Stake your Hedera account to a Node or user account",
           "noLock": "No lock-up period when you staked to a Node",

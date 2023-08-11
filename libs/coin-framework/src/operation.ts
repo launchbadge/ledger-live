@@ -194,6 +194,7 @@ export function getOperationAmountNumber(op: Operation): BigNumber {
     case "STAKE":
     case "UNSTAKE":
     case "WITHDRAW_UNSTAKED":
+    case "UPDATE_ACCOUNT":
       return op.fee.negated();
 
     default:
