@@ -601,7 +601,6 @@ export enum NavigatorName {
   CardanoUndelegationFlow = "CardanoUndelegationFlow",
   // hedera
   HederaStakeFlow = "HederaStakeFlow",
-  HederaStopStakeFlow = "HederaStopStakeFlow",
   // NEAR
   NearStakingFlow = "NearStakingFlow",
   NearUnstakingFlow = "NearUnstakingFlow",

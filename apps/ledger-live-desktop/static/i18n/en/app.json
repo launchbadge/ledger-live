@@ -1815,6 +1815,7 @@
       "palletMethod": "Method",
       "transferAmount": "Transfer Amount",
       "validatorsCount": "Validators ({{number}})",
+      "updateAccountTitle": "Note",
       "updateAccount": "Possible actions that are performed during an Update Account transaction include staking or key changes"
     }
   },

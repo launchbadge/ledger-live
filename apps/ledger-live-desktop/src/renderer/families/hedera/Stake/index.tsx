@@ -39,9 +39,9 @@ const Delegation = ({ account }: Props) => {
     staked
   } = hederaResources;
 //   const delegationEnabled = canDelegate(account);
-  const currencyId = account.currency.id;
+  // const currencyId = account.currency.id;
 //   const { validators } = useCosmosFamilyPreloadData(currencyId);
-  const unit = getAccountUnit(account);
+  // const unit = getAccountUnit(account);
 //   const mappedUnbondings = mapUnbondings(unbondings, validators, unit);
 //   const onEarnRewards = useCallback(() => {
 //     dispatch(
@@ -88,7 +88,7 @@ const Delegation = ({ account }: Props) => {
 //     },
 //     [explorerView],
 //   );
-  const hasDelegations = staked.accountId != null || staked.nodeId != null;
+  const hasStake = staked.accountId != null || staked.nodeId != null;
 
   return (
     <>
@@ -100,7 +100,7 @@ const Delegation = ({ account }: Props) => {
           }}
         >
         </TableHeader>
-        {hasDelegations ? (
+        {hasStake ? (
           <>
             <Header />
               <Row
