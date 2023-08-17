@@ -571,7 +571,6 @@ export enum NavigatorName {
   CeloWithdrawFlow = "CeloWithdrawFlow",
   // hedera
   HederaStakeFlow = "HederaStakeFlow",
-  HederaStopStakeFlow = "HederaStopStakeFlow",
   // NEAR
   NearStakingFlow = "NearStakingFlow",
   NearUnstakingFlow = "NearUnstakingFlow",

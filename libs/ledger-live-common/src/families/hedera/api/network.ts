@@ -98,7 +98,8 @@ let _hederaClient: hedera.Client | null = null;
 let _hederaBalanceClient: hedera.Client | null = null;
 
 function getClient(): hedera.Client {
-  _hederaClient ??= hedera.Client.forMainnet().setMaxNodesPerTransaction(1);
+  _hederaClient ??= hedera.Client.forTestnet();
+  // _hederaClient ??= hedera.Client.forMainnet().setMaxNodesPerTransaction(1);
 
   //_hederaClient.setNetwork({ mainnet: "https://hedera.coin.ledger.com" });
 
@@ -106,7 +107,7 @@ function getClient(): hedera.Client {
 }
 
 function getBalanceClient(): hedera.Client {
-  _hederaBalanceClient ??= hedera.Client.forMainnet();
+  _hederaBalanceClient ??= hedera.Client.forTestnet();
 
   return _hederaBalanceClient;
 }

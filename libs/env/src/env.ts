@@ -197,7 +197,8 @@ const envDefinitions: Record<
     desc: "solana transaction broadcast confirmation timeout",
   },
   API_HEDERA_MIRROR: {
-    def: "https://hedera.coin.ledger.com",
+    // def: "https://hedera.coin.ledger.com",
+    def: "https://testnet.mirrornode.hedera.com",
     parser: stringParser,
     desc: "mirror node API for Hedera",
   },
